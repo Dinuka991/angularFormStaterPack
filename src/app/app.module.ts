@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { PocFormModule } from './project/poc-form/poc-form.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PocFormService } from './project/poc-form.service';
 
 @NgModule({
   declarations: [
@@ -18,9 +19,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     FormsModule,
     PocFormModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    
   ],
-  providers: [],
+  providers: [ PocFormService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
