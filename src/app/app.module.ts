@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { PocFormModule } from './project/poc-form/poc-form.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { PocFormModule } from './project/poc-form/poc-form.module';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    PocFormModule
+    PocFormModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
