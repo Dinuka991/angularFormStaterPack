@@ -1,0 +1,60 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'custom-theme.scss';
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; 
+    
+   
+    //background-image: url('/home/darshana991/Goals/angular/angular starter packs/angularFormStarterPack/src/assets/pexels-pixabay-531880.jpg');
+    background-color: #d2ebfc;
+    width: 100%;
+    height: auto;
+    background-size: contain;
+
+}
+
+.form-card {
+  max-width: 53%;
+  max-height: 70%;
+  color: rgb(60, 61, 133);
+  margin: auto;
+  text-align: center;
+  font-style: inherit;
+  margin-top: 10% !important;
+  z-index: +1 !important;
+  }
+  .user-form {
+
+    width: 100%;
+    color: color(base);
+    background-color: color(white);
+    margin: auto;
+    text-align: center;
+    padding-top: 15px;
+    border-radius: 2%;
+    margin-top: 15px;
+    border-style: hidden;
+
+  } 
+  
+  .example-header-image {
+   
+    background-size: cover;
+  
+  }
+ 
+  
+  .example-full-width {
+    width: 100%;
+  }
+  
+  td {
+    padding-right: 8px;
+  }
+  mat-card{
+    max-width: 90%;
+  }
+  .mat-card-header{
+    padding-top: 15px;
+    justify-content: center;
+    margin: auto;
+  }
