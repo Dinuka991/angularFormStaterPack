@@ -10,17 +10,16 @@
         <input matInput disabled value="Google">
       </mat-form-field>
     
-      <table class="example-full-width" cellspacing="0"><tr>
-        <td><mat-form-field class="example-full-width">
-          <mat-label>First name</mat-label>
+      <div class="flex-container">
+      <mat-form-field  class="flex-input-left ">
+          <mat-label>First Name</mat-label>
           <input matInput>
-        </mat-form-field></td>
-        <td><mat-form-field class="example-full-width">
-          <mat-label>Long Last Name That Will Be Truncated</mat-label>
+        </mat-form-field>
+        <mat-form-field class="flex-input-right" >
+          <mat-label>Last Name</mat-label>
           <input matInput>
-        </mat-form-field></td>
-      </tr></table>
-    
+        </mat-form-field>
+      </div>
       <p>
         <mat-form-field class="example-full-width">
           <mat-label>Address</mat-label>
@@ -32,22 +31,22 @@
         </mat-form-field>
       </p>
     
-      <table class="example-full-width" cellspacing="0"><tr>
-        <td><mat-form-field class="example-full-width">
+      <div class="flex-container">  
+        <mat-form-field class="flex-input2-left">
           <mat-label>City</mat-label>
           <input matInput placeholder="Ex. San Francisco">
-        </mat-form-field></td>
-        <td><mat-form-field class="example-full-width">
+        </mat-form-field>
+          <mat-form-field class="flex-input2-right">
           <mat-label>State</mat-label>
           <input matInput placeholder="Ex. California">
-        </mat-form-field></td>
-        <td><mat-form-field class="example-full-width">
+        </mat-form-field>
+        <mat-form-field class="flex-input2-right2">
           <mat-label>Postal Code</mat-label>
           <input matInput #postalCode maxlength="5" placeholder="Ex. 94105" value="94043">
           <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
-        </mat-form-field></td>
-      </tr></table>
-        <div class="flex3">
+        </mat-form-field>
+      </div>
+        <div class="flex">
         <button   mat-raised-button color="primary">Primary</button>
         <button   mat-raised-button color="primary">Primary</button> 
         </div> 

@@ -31,12 +31,71 @@
   .example-full-width {
     width: 100%;
   }
- 
-.flex3 {  
-    display: flex;  
-    justify-content: space-between;  
 
+
+  .flex-container {
+    display: flex;
+    flex-direction: row;
+    
+  }
+  
+  .flex-input-left {
+    
+    flex: 50%;
+  }
+  
+  .flex-input-right {
+   
+    padding-left: 10px;
+    flex: 50%;
+  }
+  .flex-input2-left {
+    
+    flex: 33.33%;
+  }
+  
+  .flex-input2-right {
+   
+    padding-left: 10px;
+    padding-right: 10px;
+    flex: 33.33%;
+  }
+
+  .flex-input2-right2 {
+   
+    flex: 33.33%;
+  }
+  
+  @media (max-width: 1060px) {
+    .flex-container {
+      flex-direction: column;
+    }
+    .flex-input-left {
+    
+      flex: 50%;
+    }
+    
+    .flex-input-right {
+     
+      padding-left: 0px !important;
+      flex: 50%;
+    }
+
+    .flex-input2-right {
+   
+      padding-left: 0px;
+      padding-right: 0px;
+      flex: 33.33%;
+    }
+    
+  }
+ 
+.flex {  
+    display: flex; 
+    justify-content: space-between;
 }  
+
+
 
   td {
     padding-right: 8px;
