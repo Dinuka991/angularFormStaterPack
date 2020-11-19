@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-poc-form',
@@ -7,10 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PocFormComponent implements OnInit {
 
-  constructor() { }
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
   }
- 
+  profileForm = this.fb.group({
+
+      firstName: [''],
+       lastName: [''],
+        address: [''],
+       address2: [''],
+           city: [''],
+          state: [''],
+            zip: [''],
+   emailAddress: [''  , [Validators.required]  ]
+    
+  });
 
 }

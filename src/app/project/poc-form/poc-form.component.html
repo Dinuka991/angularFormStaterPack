@@ -1,57 +1,69 @@
-<mat-card class="form-card">
-  <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>User Registerstion Form</mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-    <form class="user-form" >
-      <mat-form-field class="example-full-width">
-        <mat-label>Company (disabled)</mat-label>
-        <input matInput disabled value="Google">
-      </mat-form-field>
-    
-      <div class="flex-container">
-      <mat-form-field  class="flex-input-left ">
-          <mat-label>First Name</mat-label>
-          <input matInput>
-        </mat-form-field>
-        <mat-form-field class="flex-input-right" >
-          <mat-label>Last Name</mat-label>
-          <input matInput>
-        </mat-form-field>
-      </div>
-      <p>
-        <mat-form-field class="example-full-width">
-          <mat-label>Address</mat-label>
-          <textarea matInput placeholder="Ex. 100 Main St">1600 Amphitheatre Pkwy</textarea>
-        </mat-form-field>
-        <mat-form-field class="example-full-width">
-          <mat-label>Address 2</mat-label>
-          <textarea matInput></textarea>
-        </mat-form-field>
-      </p>
-    
-      <div class="flex-container">  
-        <mat-form-field class="flex-input2-left">
-          <mat-label>City</mat-label>
-          <input matInput placeholder="Ex. San Francisco">
-        </mat-form-field>
-          <mat-form-field class="flex-input2-right">
-          <mat-label>State</mat-label>
-          <input matInput placeholder="Ex. California">
-        </mat-form-field>
-        <mat-form-field class="flex-input2-right2">
-          <mat-label>Postal Code</mat-label>
-          <input matInput #postalCode maxlength="5" placeholder="Ex. 94105" value="94043">
-          <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
-        </mat-form-field>
-      </div>
-        <div class="flex">
-        <button   mat-raised-button color="primary">Primary</button>
-        <button   mat-raised-button color="primary">Primary</button> 
-        </div> 
-    
-    </form>
+  <div class= "flex-container">
+  <div class="flex-input-left-card">   
+  </div>   
+  <mat-card class="card form-card container flex-card-right">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title class="card-title">User Registerstion Form</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="card-body">
+      <form  class="form-group" [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="user-form" >   
+        <div class="flex-container">
+        <mat-form-field  class="flex-input-left form-group" >
+            <mat-label>First Name</mat-label>
+            <input matInput formControlName ="firstName"  >
+          </mat-form-field>
+          <mat-form-field class="flex-input-right form-group">
+            <mat-label>Last Name</mat-label>
+            <input matInput formControlName ="lastName" >
+          </mat-form-field>
+        </div>
+        <p>
+          <mat-form-field class="example-full-width form-group">
+            <mat-label>Address</mat-label>
+            <textarea matInput placeholder="Ex. 100 Main St" matInput formControlName ="address">1600 Amphitheatre Pkwy</textarea>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Address 2</mat-label>
+            <textarea matInput matInput formControlName ="address2"></textarea>
+          </mat-form-field>
+        </p>
+      
+        <div class="flex-container">  
+          <mat-form-field class="flex-input2-left">
+            <mat-label>City</mat-label>
+            <input matInput placeholder="Ex. San Francisco" matInput formControlName ="city">
+          </mat-form-field>
+            <mat-form-field class="flex-input2-right">
+            <mat-label>State</mat-label>
+            <input matInput placeholder="Ex. California" matInput formControlName ="state">
+          </mat-form-field>
+          <mat-form-field class="flex-input2-right2">
+            <mat-label>Postal Code</mat-label>
+            <input matInput #postalCode maxlength="5" placeholder="Ex. 94105" value="94043" matInput formControlName ="zip">
+            <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+          </mat-form-field>
+        </div>
 
-  </mat-card-content>
-</mat-card>
+        <mat-divider></mat-divider>
+         
+        <mat-form-field class="example-full-width">
+          <mat-label>Office Email</mat-label>
+          <input type="email"  matInput formControlName ="emailAddress" placeholder="Ex. pat@example.com">
+          <mat-error *ngIf="profileForm.hasError('emailAddress') && !profileForm.hasError('required')">
+            Please enter a valid email address
+          </mat-error>
+          <mat-error *ngIf="profileForm.hasError('required')">
+            Email is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+
+          <div class="flex">
+          <button type="button" class="btn btn-danger">Primary</button>
+          <button  class="btn btn-primary"  type="submit" >Primary</button> 
+          </div> 
+      
+      </form>
+
+    </mat-card-content>
+  </mat-card>

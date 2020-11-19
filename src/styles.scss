@@ -1,4 +1,4 @@
-
+@import "~bootstrap/dist/css/bootstrap.css";
 .form-card {
   max-width: 53%;
   max-height: 70%;
@@ -38,9 +38,21 @@
     flex-direction: row;
     
   }
+
   
   .flex-input-left {
+    flex: 50%;
+
     
+  }
+  .flex-card-left {
+    flex: 50%;
+
+    
+  }
+  .flex-card-right {
+   
+    margin-right: 10%;
     flex: 50%;
   }
   
@@ -67,6 +79,22 @@
   }
   
   @media (max-width: 1060px) {
+
+    .form-card {
+      max-width: 73%;
+      max-height: 100%;
+      font-style: inherit;
+      margin-top: 2% !important;
+      z-index: +1 !important;
+      }
+      .user-form {
+    
+        width: 100%;
+        padding-top: 5px;
+        margin-top: 5px;
+       
+    
+      } 
     .flex-container {
       flex-direction: column;
     }
@@ -87,6 +115,20 @@
       padding-right: 0px;
       flex: 33.33%;
     }
+
+    .flex-card-right {
+   
+      margin-right: 0px;
+      flex: 100%;
+    }
+    .flex-input-left-card {
+      flex: 0% !important;
+      margin: 0% !important;
+      width: 0px;
+  
+      
+    }
+    
     
   }
  
