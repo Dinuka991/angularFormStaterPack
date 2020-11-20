@@ -5,7 +5,7 @@
       <mat-card-title class="card-title">User Registerstion Form</mat-card-title>
     </mat-card-header>
     <mat-card-content class="card-body">
-      <form  class="form-group" [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="user-form" >   
+      <form  (ngSubmit) = "onSubmit(profileForm)"  [formGroup]="profileForm"  class="form-group user-form" >   
         <div class="flex-container">
         <mat-form-field  class="flex-input-left form-group" >
             <mat-label>First Name</mat-label>
@@ -16,14 +16,16 @@
             <input matInput formControlName ="lastName" >
           </mat-form-field>
         </div>
+        <mat-form-field class="example-full-width">
+          <mat-label>Telephone</mat-label>
+          <span matPrefix>+1 &nbsp;</span>
+          <input type="tel" matInput  formControlName ="mobileNumber"  placeholder="555-555-1234">
+          <mat-icon matSuffix>mode_edit</mat-icon>
+        </mat-form-field>
         <p>
           <mat-form-field class="example-full-width form-group">
             <mat-label>Address</mat-label>
             <textarea matInput placeholder="Ex. 100 Main St" matInput formControlName ="address">1600 Amphitheatre Pkwy</textarea>
-          </mat-form-field>
-          <mat-form-field class="example-full-width">
-            <mat-label>Address 2</mat-label>
-            <textarea matInput matInput formControlName ="address2"></textarea>
           </mat-form-field>
         </p>
       
@@ -44,7 +46,10 @@
         </div>
 
         <mat-divider></mat-divider>
-         
+        
+       
+        
+
         <mat-form-field class="example-full-width">
           <mat-label>Office Email</mat-label>
           <input type="email"  matInput formControlName ="emailAddress" placeholder="Ex. pat@example.com">
@@ -55,6 +60,12 @@
           <mat-error *ngIf="profileForm.hasError('required')">
             Email is <strong>required</strong>
           </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Telephone</mat-label>
+          <span matPrefix>+1 &nbsp;</span>
+          <input type="tel" matInput  formControlName ="mobileNumber"  placeholder="555-555-1234">
+          <mat-icon matSuffix>mode_edit</mat-icon>
         </mat-form-field>
 
           <div class="flex">
