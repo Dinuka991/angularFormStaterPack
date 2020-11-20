@@ -48,6 +48,7 @@
         <mat-form-field class="example-full-width">
           <mat-label>Office Email</mat-label>
           <input type="email"  matInput formControlName ="emailAddress" placeholder="Ex. pat@example.com">
+          <mat-icon matSuffix>mode_edit</mat-icon>
           <mat-error *ngIf="profileForm.hasError('emailAddress') && !profileForm.hasError('required')">
             Please enter a valid email address
           </mat-error>
