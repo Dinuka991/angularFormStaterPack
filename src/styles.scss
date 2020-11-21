@@ -7,7 +7,15 @@
   font-style: inherit;
   margin-top: 10% !important;
   z-index: +1 !important;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--borderRadius);
+  box-shadow: 0 1rem 1rem -0.75rem var(--border);
+  padding: 1rem;
+  position: relative;
+  overflow: hidden;
   }
+
   .user-form {
 
     width: 100%;
@@ -20,6 +28,11 @@
     border-style: hidden;
 
   } 
+ 
+  .card-header{
+    background-color: #33b5e5 !important;
+    color: #f2f4f8;
+  }
   
   .example-header-image {
    
@@ -27,7 +40,10 @@
   
   }
  
-  
+  .errorMessage{
+    color: red;
+    font-size: x-small;
+}
   .example-full-width {
     width: 100%;
   }
@@ -151,4 +167,4 @@
     margin: auto;
   }
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; background: #f2f4f8; font-family: Roboto, "Helvetica Neue", sans-serif; }

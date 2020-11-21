@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, NgForm, ValidationErrors, Validators } from '@angular/forms';
+import { warnMessages } from '../enum';
 
 @Component({
   selector: 'app-poc-form',
@@ -10,7 +11,9 @@ export class PocFormComponent implements OnInit {
   employeeId: FormControl;
   middleName: FormControl;
   myModel: boolean;
-  jobs: string[] = ['Tempary , Full Time , Part Time']
+  jobs: string[] = ['Tempary , Full Time , Part Time'];
+  userPatternMobile = "^((\\+94-?)|07 | 7)?[0-9]{10}$";
+
 
   constructor(private fb: FormBuilder) { }
 
@@ -34,7 +37,7 @@ export class PocFormComponent implements OnInit {
         zip    : [''] ,
     nicNumber  : [''],
    emailAddress: [''  , [Validators.required]  ],
-   mobileNumber: [''],
+   mobileNumber: ['' , [Validators.required ]],
    myModel     : [''],    
    jobType     : ['' , [Validators.required]] 
     
@@ -78,7 +81,22 @@ registerControl() {
 remodeControl() {
   this.profileForm.removeControl("middleName");
 }
+
+get firstNameVal(){
+  return this.profileForm['firstName'].value;
+}
  
+
+get nicNumberVal(){
+  return this.profileForm['nicNumber'].value;
+}
+get mobileNumber(): any{
+  return this.profileForm.get('mobileNumber');
+}
+public get warnmessageResult(): typeof warnMessages{
+  return warnMessages;
+}
+
 onSubmit(form: NgForm) {
   console.log('Your form data : ', form.value);
 }

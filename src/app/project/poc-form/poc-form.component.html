@@ -1,6 +1,6 @@
 
   <mat-card class="card form-card container ">
-    <mat-card-header>
+    <mat-card-header class="card-header">
       <div mat-card-avatar class="example-header-image"></div>
       <mat-card-title class="card-title">User Registerstion Form</mat-card-title>
     </mat-card-header>
@@ -17,11 +17,23 @@
           </mat-form-field>
         </div>
         <mat-form-field class="example-full-width">
-          <mat-label>Telephone</mat-label>
-          <span matPrefix>+1 &nbsp;</span>
-          <input type="tel" matInput  formControlName ="mobileNumber"  placeholder="555-555-1234">
-          <mat-icon matSuffix>mode_edit</mat-icon>
+          <mat-label>Mobile Number</mat-label>
+          <input type="tel" matInput   pattern="07[1,2,5,6,7,8][0-9]+" formControlName ="mobileNumber"  maxlength="9" minlength="12"  placeholder="07XXXXXXXX">
+          <mat-icon  matSuffix> call</mat-icon>
+          <div  class="errorMessage" *ngIf="mobileNumber.invalid && (mobileNumber.dirty || mobileNumber.touched)">
+           <div *ngIf="mobileNumber.errors?.pattern">
+             {{warnmessageResult.mobileError}}
+           </div> 
+           <div *ngIf="mobileNumber.errors.minlength">
+             {{warnmessageResult.mobileErrorMin}}
+           </div>
+            <div *ngIf="mobileNumber.errors.required">
+              {{warnmessageResult.requiredmobileError}}
+            </div>  
+          </div>
         </mat-form-field>
+
+    
         <p>
           <mat-form-field class="example-full-width form-group">
             <mat-label>Address</mat-label>
@@ -61,13 +73,7 @@
             Email is <strong>required</strong>
           </mat-error>
         </mat-form-field>
-        <mat-form-field class="example-full-width">
-          <mat-label>Telephone</mat-label>
-          <span matPrefix>+1 &nbsp;</span>
-          <input type="tel" matInput  formControlName ="mobileNumber"  placeholder="555-555-1234">
-          <mat-icon matSuffix>mode_edit</mat-icon>
-        </mat-form-field>
-
+       
           <div class="flex">
           <button type="button" class="btn btn-danger">Primary</button>
           <button  class="btn btn-primary"  type="submit" >Primary</button> 
