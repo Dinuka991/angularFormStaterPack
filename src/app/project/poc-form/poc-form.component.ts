@@ -23,6 +23,8 @@ export class PocFormComponent implements OnInit {
     this.containsControl();
     this.getErrors();
     this.profileForm.pristine;
+    //this.firstNameVal();
+    //this.nicNumberError();
 
 
   }
@@ -30,30 +32,36 @@ export class PocFormComponent implements OnInit {
 
       firstName: [''],
        lastName: [''],
-        address: [''],
-       address2: [''],
-        city   : [''],
-        state  : [''] ,
-        zip    : [''] ,
-    nicNumber  : [''],
-   emailAddress: [''  , [Validators.required]  ],
-   mobileNumber: ['' , [Validators.required ]],
+    nicNumber  : ['', [Validators.required] ],
+    empNumber  : [''],
    myModel     : [''],    
    jobType     : ['' , [Validators.required]] 
     
   });
 
+  profileForm2 = this.fb.group({
+
+    
+     address: [''],
+      city   : [''],
+      state  : [''] ,
+      zip    : [''] ,
+ emailAddress: [''  , [Validators.required]  ],
+ mobileNumber: ['' , [Validators.required ]],
+
+});
+
    
   
 
 patchValue() {
-  this.profileForm.patchValue({
+  this.profileForm2.patchValue({
     city: 'Colombo',
     state: 'Western province'
   })
 }
 onChanges(): void {
-  this.profileForm.get('address').valueChanges.subscribe(val => {
+  this.profileForm2.get('address').valueChanges.subscribe(val => {
     console.log(val)
   });
 }
@@ -90,8 +98,11 @@ get firstNameVal(){
 get nicNumberVal(){
   return this.profileForm['nicNumber'].value;
 }
-get mobileNumber(): any{
-  return this.profileForm.get('mobileNumber');
+get mobileNumber2(): any{
+  return this.profileForm2.get('mobileNumber');
+}
+get nicNumberError(): any{
+  return this.profileForm.get('nicNumber');
 }
 public get warnmessageResult(): typeof warnMessages{
   return warnMessages;

@@ -11,6 +11,7 @@ import {MatListModule} from '@angular/material/list';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSelectModule} from '@angular/material/select';
+import {MatStepperModule} from '@angular/material/stepper';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import {MatSelectModule} from '@angular/material/select';
     MatListModule,
     ReactiveFormsModule,
     MatCheckboxModule,
-    MatSelectModule
+    MatSelectModule,
+    MatStepperModule
      
   ]
 })

@@ -1,38 +1,100 @@
 
-  <mat-card class="card form-card container ">
+  <mat-card class="form-card">
     <mat-card-header class="card-header">
-      <div mat-card-avatar class="example-header-image"></div>
       <mat-card-title class="card-title">User Registerstion Form</mat-card-title>
+      <mat-icon>person</mat-icon>
     </mat-card-header>
     <mat-card-content class="card-body">
-      <form  (ngSubmit) = "onSubmit(profileForm)"  [formGroup]="profileForm"  class="form-group user-form" >   
-        <div class="flex-container">
+      <mat-horizontal-stepper linear #stepper>
+        <mat-step [stepControl]="profileForm" [editable]="isEditable">
+      <form  (ngSubmit) = "onSubmit(profileForm)"  [formGroup]="profileForm"  class="user-form" >   
+      <div> 
+      <div class="flex-container">
         <mat-form-field  class="flex-input-left form-group" >
             <mat-label>First Name</mat-label>
             <input matInput formControlName ="firstName"  >
+            <mat-icon matSuffix>mode_edit</mat-icon>
+            <div  class="errorMessage" *ngIf="mobileNumber2.invalid && (mobileNumber2.dirty || mobileNumber2.touched)">
+              <div *ngIf="mobileNumber2.errors?.pattern">
+                {{warnmessageResult.mobileError}}
+              </div> 
+              <div *ngIf="mobileNumber2.errors.minlength">
+                {{warnmessageResult.mobileErrorMin}}
+              </div>
+               <div *ngIf="mobileNumber2.errors.required">
+                 {{warnmessageResult.requiredmobileError}}
+               </div>  
+             </div>
           </mat-form-field>
           <mat-form-field class="flex-input-right form-group">
             <mat-label>Last Name</mat-label>
             <input matInput formControlName ="lastName" >
+            <mat-icon matSuffix>mode_edit</mat-icon>
+            <div  class="errorMessage" *ngIf="mobileNumber2.invalid && (mobileNumber2.dirty || mobileNumber2.touched)">
+              <div *ngIf="mobileNumber2.errors?.pattern">
+                {{warnmessageResult.mobileError}}
+              </div> 
+              <div *ngIf="mobileNumber2.errors.minlength">
+                {{warnmessageResult.mobileErrorMin}}
+              </div>
+               <div *ngIf="mobileNumber2.errors.required">
+                 {{warnmessageResult.requiredmobileError}}
+               </div>  
+             </div>
           </mat-form-field>
-        </div>
-        <mat-form-field class="example-full-width">
-          <mat-label>Mobile Number</mat-label>
-          <input type="tel" matInput   pattern="07[1,2,5,6,7,8][0-9]+" formControlName ="mobileNumber"  maxlength="9" minlength="12"  placeholder="07XXXXXXXX">
-          <mat-icon  matSuffix> call</mat-icon>
-          <div  class="errorMessage" *ngIf="mobileNumber.invalid && (mobileNumber.dirty || mobileNumber.touched)">
-           <div *ngIf="mobileNumber.errors?.pattern">
-             {{warnmessageResult.mobileError}}
-           </div> 
-           <div *ngIf="mobileNumber.errors.minlength">
-             {{warnmessageResult.mobileErrorMin}}
+      </div>
+      <div>
+        <mat-form-field >
+          <mat-label> NIC Number</mat-label>
+          <input  matInput   formControlName ="nicNumber"  >
+          <mat-icon  matSuffix>account_box</mat-icon>
+          <div  class="errorMessage" *ngIf="mobileNumber2.invalid && (mobileNumber2.dirty || mobileNumber2.touched)">
+            <div *ngIf="mobileNumber2.errors?.pattern">
+              {{warnmessageResult.mobileError}}
+            </div> 
+            <div *ngIf="mobileNumber2.errors.minlength">
+              {{warnmessageResult.mobileErrorMin}}
+            </div>
+             <div *ngIf="mobileNumber2.errors.required">
+               {{warnmessageResult.requiredmobileError}}
+             </div>  
            </div>
-            <div *ngIf="mobileNumber.errors.required">
-              {{warnmessageResult.requiredmobileError}}
-            </div>  
-          </div>
         </mat-form-field>
-
+      </div>
+      <br>
+      <div>
+        <mat-form-field >
+          <mat-label> Employee Number</mat-label>
+          <input  matInput   formControlName ="nicNumber"  >
+          <mat-icon  matSuffix>account_box</mat-icon>
+          <div  class="errorMessage" *ngIf="mobileNumber2.invalid && (mobileNumber2.dirty || mobileNumber2.touched)">
+            <div *ngIf="mobileNumber2.errors?.pattern">
+              {{warnmessageResult.mobileError}}
+            </div> 
+            <div *ngIf="mobileNumber2.errors.minlength">
+              {{warnmessageResult.mobileErrorMin}}
+            </div>
+             <div *ngIf="mobileNumber2.errors.required">
+               {{warnmessageResult.requiredmobileError}}
+             </div>  
+           </div>
+        </mat-form-field>
+      </div>
+      </div>
+        <br>
+        <br>
+        <div>
+          <button  matStepperNext>Next</button>
+        </div>
+        
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="profileForm2" [editable]="isEditable">
+      <form [formGroup]="profileForm2"  class="form-group user-form" >
+        <ng-template matStepLabel>Fill out your address</ng-template>
+      
+  
+     
     
         <p>
           <mat-form-field class="example-full-width form-group">
@@ -56,16 +118,23 @@
             <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
           </mat-form-field>
         </div>
-
-        <mat-divider></mat-divider>
-        
-       
-        
-
+        <mat-form-field >
+          <mat-label>Mobile Number</mat-label>
+          <input type="tel" matInput   formControlName ="mobileNumber"  minlength="9"  pattern="[07,7][1,2,5,6,7,8][0-9]+" maxlength="10"  placeholder="07XXXXXXXX">
+          <mat-icon  matSuffix> call</mat-icon>
+          <div  class="errorMessage" *ngIf="mobileNumber2.invalid && (mobileNumber2.dirty || mobileNumber2.touched)">
+           <div *ngIf="mobileNumber2.errors?.pattern">
+             {{warnmessageResult.mobileError}}
+           </div> 
+            <div *ngIf="mobileNumber2.errors.required">
+              {{warnmessageResult.requiredmobileError}}
+            </div>  
+          </div>
+        </mat-form-field>
         <mat-form-field class="example-full-width">
           <mat-label>Office Email</mat-label>
           <input type="email"  matInput formControlName ="emailAddress" placeholder="Ex. pat@example.com">
-          <mat-icon matSuffix>mode_edit</mat-icon>
+          <mat-icon  matSuffix> email</mat-icon>
           <mat-error *ngIf="profileForm.hasError('emailAddress') && !profileForm.hasError('required')">
             Please enter a valid email address
           </mat-error>
@@ -73,13 +142,23 @@
             Email is <strong>required</strong>
           </mat-error>
         </mat-form-field>
-       
+
           <div class="flex">
           <button type="button" class="btn btn-danger">Primary</button>
           <button  class="btn btn-primary"  type="submit" >Primary</button> 
           </div> 
       
       </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      <p>You are now done.</p>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
 
     </mat-card-content>
   </mat-card>

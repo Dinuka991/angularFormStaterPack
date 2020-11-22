@@ -2,36 +2,68 @@
 .form-card {
   max-width: 53%;
   max-height: 70%;
-  color: rgb(60, 61, 133);
+  color: #2d89ef;
   margin: auto;
   font-style: inherit;
   margin-top: 10% !important;
   z-index: +1 !important;
-  background: white;
+  //background-color: #d2eaf3 !important;
+  background-color: #e4ecf5;
+
   border: 1px solid var(--border);
   border-radius: var(--borderRadius);
   box-shadow: 0 1rem 1rem -0.75rem var(--border);
   padding: 1rem;
   position: relative;
   overflow: hidden;
+ 
   }
 
   .user-form {
 
     width: 100%;
     color: color(base);
-    background-color: color(white);
+    color: #f2f4f8;
+    color: #2d89ef;
     margin: auto;
-    padding-top: 15px;
     border-radius: 2%;
     margin-top: 15px;
-    border-style: hidden;
+    //border-style: hidden;
+    border: 1px solid var(--border);
+    border-radius: px;
+    padding: 20px;
 
   } 
  
   .card-header{
-    background-color: #33b5e5 !important;
+   // background-color: #43b7e0 !important;
+   background-color: #2d89ef;
     color: #f2f4f8;
+    padding: 20px;
+
+  }
+  .card-body{
+    width: 100%;
+    background-color: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: var(--borderRadius);
+    padding: 20px;
+    z-index: 2;
+
+  }
+  button{
+    //background-color: #2d89ef;
+    //color: #2d89ef;
+
+    background-color: #2d89ef; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 22px;
+    text-align: center;
+    text-decoration: none;
+    float: right;
+    font-size: 16px;
+    border-radius: 5%;
   }
   
   .example-header-image {
@@ -93,8 +125,11 @@
    
     flex: 33.33%;
   }
+  mat-form-field{
+    width: 100%;
+  }
   
-  @media (max-width: 1060px) {
+  @media (max-width: 1360px) {
 
     .form-card {
       max-width: 73%;
