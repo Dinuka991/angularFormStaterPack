@@ -12,6 +12,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSelectModule} from '@angular/material/select';
 import {MatStepperModule} from '@angular/material/stepper';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import {MatStepperModule} from '@angular/material/stepper';
     ReactiveFormsModule,
     MatCheckboxModule,
     MatSelectModule,
-    MatStepperModule
+    MatStepperModule,
+    MatTooltipModule
      
   ]
 })

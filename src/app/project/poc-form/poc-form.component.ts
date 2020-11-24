@@ -13,6 +13,8 @@ export class PocFormComponent implements OnInit {
   myModel: boolean;
   jobs: string[] = ['Tempary , Full Time , Part Time'];
   userPatternMobile = "^((\\+94-?)|07 | 7)?[0-9]{10}$";
+  userEmailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$"
+
 
 
   constructor(private fb: FormBuilder) { }
@@ -30,38 +32,35 @@ export class PocFormComponent implements OnInit {
   }
   profileForm = this.fb.group({
 
-      firstName: [''],
-       lastName: [''],
+      firstName: ['', [Validators.required]],
+       lastName: ['', [Validators.required]],
     nicNumber  : ['', [Validators.required] ],
     empNumber  : [''],
    myModel     : [''],    
-   jobType     : ['' , [Validators.required]] 
+   jobType     : ['' ] ,
+
+   address: [''],
+   city   : [''],
+   state  : [''] ,
+   zip    : [''] ,
+emailAddress: [''  , [Validators.required  , Validators.pattern(this.userEmailPattern) ]  ],
+mobileNumber: ['' , [Validators.required ]],
     
   });
 
-  profileForm2 = this.fb.group({
 
-    
-     address: [''],
-      city   : [''],
-      state  : [''] ,
-      zip    : [''] ,
- emailAddress: [''  , [Validators.required]  ],
- mobileNumber: ['' , [Validators.required ]],
-
-});
 
    
   
 
 patchValue() {
-  this.profileForm2.patchValue({
+  this.profileForm.patchValue({
     city: 'Colombo',
     state: 'Western province'
   })
 }
 onChanges(): void {
-  this.profileForm2.get('address').valueChanges.subscribe(val => {
+  this.profileForm.get('address').valueChanges.subscribe(val => {
     console.log(val)
   });
 }
@@ -91,7 +90,7 @@ remodeControl() {
 }
 
 get firstNameVal(){
-  return this.profileForm['firstName'].value;
+  return this.profileForm.get('fisrtName').value;
 }
  
 
@@ -99,17 +98,40 @@ get nicNumberVal(){
   return this.profileForm['nicNumber'].value;
 }
 get mobileNumber2(): any{
-  return this.profileForm2.get('mobileNumber');
+  return this.profileForm.get('mobileNumber');
 }
 get nicNumberError(): any{
   return this.profileForm.get('nicNumber');
+}
+get fname2(): any{
+  return this.profileForm.get('firstName');
+}
+get lname2(): any{
+  return this.profileForm.get('lastName');
+}
+get email2(): any{
+  return this.profileForm.get('emailAddress');
 }
 public get warnmessageResult(): typeof warnMessages{
   return warnMessages;
 }
 
+
+
 onSubmit(form: NgForm) {
   console.log('Your form data : ', form.value);
+  var formDataObj: any = new FormData();
+  console.log(this.profileForm.get('firstName').value);
+  formDataObj.append("fname", this.profileForm.get('firstName').value);
+  formDataObj.append("lname", this.profileForm.get('lastName').value);
+  formDataObj.append("mobile", this.profileForm.get('mobileNumber').value);
+  formDataObj.append("email", this.profileForm.get('emailAddress').value);
+  alert(formDataObj);
+  console.log(formDataObj)
+
+}
+cancel(){
+  this.profileForm.reset();
 }
 
 
