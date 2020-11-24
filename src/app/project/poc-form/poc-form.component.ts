@@ -119,16 +119,21 @@ public get warnmessageResult(): typeof warnMessages{
 
 
 onSubmit(form: NgForm) {
+  if(this.profileForm.valid){
   console.log('Your form data : ', form.value);
-  var formDataObj: any = new FormData();
-  console.log(this.profileForm.get('firstName').value);
-  formDataObj.append("fname", this.profileForm.get('firstName').value);
-  formDataObj.append("lname", this.profileForm.get('lastName').value);
-  formDataObj.append("mobile", this.profileForm.get('mobileNumber').value);
-  formDataObj.append("email", this.profileForm.get('emailAddress').value);
-  alert(formDataObj);
-  console.log(formDataObj)
+  const requestObj = {
+    fname : this.profileForm.value.firstName,
+    lname:  this.profileForm.value.lastName,
+    mobile:  this.profileForm.value.mobileNumber,
+    email: this.profileForm.value.emailAddress,
 
+  };
+  alert(requestObj);
+  console.log(requestObj)
+     
+  }
+
+  
 }
 cancel(){
   this.profileForm.reset();
