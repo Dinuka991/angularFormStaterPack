@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --port 4401 ",
+    "start": "node --max-http-header-size=100000 ./node_modules/@angular/cli/bin/ng serve --port 4200 --proxy-config proxy.conf.json",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",

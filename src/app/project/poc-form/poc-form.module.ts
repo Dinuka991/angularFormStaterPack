@@ -13,6 +13,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSelectModule} from '@angular/material/select';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     MatCheckboxModule,
     MatSelectModule,
     MatStepperModule,
-    MatTooltipModule
+    MatTooltipModule,
+    HttpClientModule
      
   ]
 })

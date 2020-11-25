@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, NgForm, ValidationErrors, Validators } from '@angular/forms';
 import { warnMessages } from '../enum';
+import { PocFormService } from '../poc-form.service';
 
 @Component({
   selector: 'app-poc-form',
@@ -17,7 +18,7 @@ export class PocFormComponent implements OnInit {
 
 
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder , private pocFormService: PocFormService) { }
 
   ngOnInit() {
     this.patchValue();
@@ -122,12 +123,16 @@ onSubmit(form: NgForm) {
   if(this.profileForm.valid){
   console.log('Your form data : ', form.value);
   const requestObj = {
-    fname : this.profileForm.value.firstName,
-    lname:  this.profileForm.value.lastName,
-    mobile:  this.profileForm.value.mobileNumber,
-    email: this.profileForm.value.emailAddress,
-
+    employeeId : 1,
+    employeeName:  this.profileForm.value.lastName,
+    employeeMobile:  this.profileForm.value.mobileNumber,
+    employeeEmail: this.profileForm.value.emailAddress,
+    employeeDate : "2001-12-11"
   };
+  this.pocFormService.postCustomer(requestObj)
+    .subscribe((data: any) => {
+      console.log(data);
+    })
   alert(requestObj);
   console.log(requestObj)
      
