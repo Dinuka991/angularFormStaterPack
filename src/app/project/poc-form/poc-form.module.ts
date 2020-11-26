@@ -14,6 +14,8 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { HttpClientModule } from '@angular/common/http';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 
 @NgModule({
@@ -32,8 +34,13 @@ import { HttpClientModule } from '@angular/common/http';
     MatSelectModule,
     MatStepperModule,
     MatTooltipModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDatepickerModule,
+    MatNativeDateModule
+    
+
      
-  ]
+  ],
+  providers: [MatDatepickerModule , MatNativeDateModule]
 })
 export class PocFormModule { }

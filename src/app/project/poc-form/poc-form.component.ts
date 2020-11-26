@@ -35,15 +35,13 @@ export class PocFormComponent implements OnInit {
 
       firstName: ['', [Validators.required]],
        lastName: ['', [Validators.required]],
-    nicNumber  : ['', [Validators.required] ],
-    empNumber  : [''],
-   myModel     : [''],    
-   jobType     : ['' ] ,
+       nicNumber  : ['', [Validators.required] ],
+       empNumber  : [''],
+         myModel     : [''],    
+         jobType     : ['' ] ,
+         dob     : [],
 
    address: [''],
-   city   : [''],
-   state  : [''] ,
-   zip    : [''] ,
 emailAddress: [''  , [Validators.required  , Validators.pattern(this.userEmailPattern) ]  ],
 mobileNumber: ['' , [Validators.required ]],
     

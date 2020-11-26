@@ -1,6 +1,6 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 .form-card {
-  max-width: 53%;
+  max-width: 73%;
   max-height: 70vh;
   color: #2d89ef;
   margin: auto;
@@ -140,29 +140,27 @@
 
   
   .flex-input-left {
-    flex: 50%;
-
-    
+    flex: 50%;    
   }
   .flex-card-left {
     flex: 50%;
-
-    
   }
   .flex-card-right {
-   
     margin-right: 10%;
     flex: 50%;
   }
   
   .flex-input-right {
    
-    padding-left: 10px;
+    padding-left: 15px;
     flex: 50%;
   }
-  .flex-input2-left {
-    
+  .flex-input2-com-left{
     flex: 33.33%;
+  }
+  .flex-input2-com-right {
+    padding-left: 15px;
+    flex: 66.66%;
   }
   
   .flex-input2-right {
@@ -180,7 +178,7 @@
     width: 100%;
   }
   
-  @media (max-width: 1360px) {
+  @media (max-width:1150px) {
 
     .form-card {
       max-width: 73%;
@@ -230,6 +228,11 @@
   
       
     }
+    .flex-input2-com-right {
+      padding-left: 0px;
+      flex: 66.66%;
+    }
+    
     
     
   }
