@@ -14,7 +14,8 @@ export class PocFormComponent implements OnInit {
   myModel: boolean;
   jobs: string[] = ['Tempary , Full Time , Part Time'];
   userPatternMobile = "^((\\+94-?)|07 | 7)?[0-9]{10}$";
-  userEmailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$"
+  userEmailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$";
+  genderList: String[] = [ 'Male' , 'Female' , 'Other'  ]
 
 
 
@@ -40,6 +41,7 @@ export class PocFormComponent implements OnInit {
          myModel     : [''],    
          jobType     : ['' ] ,
          dob     : [],
+         gender: [],
 
    address: [''],
 emailAddress: [''  , [Validators.required  , Validators.pattern(this.userEmailPattern) ]  ],
