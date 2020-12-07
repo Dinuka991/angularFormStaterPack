@@ -16,10 +16,11 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import { HttpClientModule } from '@angular/common/http';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { EmployeeFormComponent } from '../employee-form/employee-form.component';
 
 
 @NgModule({
-  declarations: [ PocFormComponent ],
+  declarations: [ PocFormComponent ,EmployeeFormComponent ],
   imports: [
     CommonModule,
     MatCardModule,

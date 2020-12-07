@@ -1,0 +1,22 @@
+
+  <mat-card class="mat-elevation-z0 form-card">
+    <div class="card-content">
+    <mat-card-header class="card-header">
+      <mat-card-title class="card-title">User Registerstion Form</mat-card-title>
+      <mat-icon>person</mat-icon>
+    </mat-card-header>
+    <mat-card-content class="card-body">
+      <form  (ngSubmit) = "onSubmit(profileForm)"  [formGroup]="profileForm"  class="user-form" >   
+        <mat-form-field appearance="fill">
+            <mat-label>Enter a date range</mat-label>
+            <mat-date-range-input [rangePicker]="picker">
+                <input matStartDate formControlName="start" placeholder="Start date"  [(ngModel)]="start" [min]="startMinDate" [max]="startMaxDate" >
+                <input matEndDate formControlName="end" placeholder="End date"  [(ngModel)]="end" [min]="endMinDate" [max]="endMaxDate"  >
+            </mat-date-range-input>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-date-range-picker #picker></mat-date-range-picker>
+          </mat-form-field>
+      </form>
+    </mat-card-content>
+    </div>
+  </mat-card>
